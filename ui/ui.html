@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HEY!</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        #container {
+            position: absolute;
+            top: 50%;
+
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        * {
+            font-family: Arial;
+            overflow: hidden;
+        }
+
+        span, h1, #container {
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 256px;
+            font-size: 10rem;
+            white-space: nowrap;
+            color: #000000;
+        }
+    </style>
+    <style id="custom"></style>
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+<div id="container">
+    <h1>Your Welcome Message</h1>
+</div>
+<script type="text/javascript" src="/eel.js"></script>
+<script>
+    let jsons;
+    var welcomemsg, greeting, logo, user = "";
+    let container = document.getElementById("container");
+    eel.getConfig()((x) => jsons = x);
+    const waiter = setInterval(function f() {
+        let config = JSON.parse(jsons);
+        logo = config["logo"];
+        welcomemsg = config["welcomemessage"];
+        greeting = config["greeting"];
+        container.style.backgroundImage = "url('" + logo.replace(/\n/g, '') + "')";
+        document.getElementById("custom").innerText = config["css"];
+        wait();
+        if (jsons) {
+            clearInterval(waiter);
+        }
+    }, 100);
+    eel.expose(setUser)
+    function setUser(usr){
+        user = usr;
+    }
+    eel.expose(welcome);
+    function welcome(name) {
+        document.getElementById("container").innerHTML = "<h1>" + greeting.replace("{user}", user.replace(/\n/g, '')) + "</h1>";
+    }
+
+    eel.expose(wait);
+
+    function wait() {
+        document.getElementById("container").innerHTML = "<h1>" + welcomemsg + "</h1>";
+    }
+
+    wait()
+    document.addEventListener('DOMContentLoaded', () => {
+        'use strict';
+
+        document.addEventListener('keydown', event => {
+            const key = event.key.toLowerCase();
+            if (key == 's') {
+                window.location = "/settings.html";
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HEY! Setup</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 1rem;
+        }
+
+        .starter-template {
+            padding: 3rem 1.5rem;
+            text-align: left;
+        }
+        code{
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<main role="main" class="container">
+    <div class="starter-template">
+        <h1>Setup</h1>
+        <form>
+            <h4>Sample</h4>
+            <img style="border: 1px solid black" src="sample.png" width="800" height="450">
+            <br>
+            <br>
+            <br>
+            <h4>Configuration</h4>
+            <label for="welcomemsg">Welcome Message</label>
+            <input type="text" id="welcomemsg" class="form-control" required>
+            <p class="text-muted">This message will be shown when in idle state.</p>
+            <label for="greeting">Greeting</label>
+            <input type="text" id="greeting" required class="form-control">
+            <p class="text-muted">This message will be shown when a person is recognized. Use {user} at the position the
+                name of the recognized person should be.</p>
+            <label for="logo">Company Logo</label>
+            <input type="text" class="form-control" id="logo" placeholder="Enter Base64 Encoded Logo" required>
+            <p class="text-muted"><a href="base64.html" target="_blank">Encode Image</a> This logo will be shown behind your text.</p>
+            <h4>UI SRC</h4>
+            <p>The standalone code below can be used to create your custom css.</p>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#004a43; '>&lt;!DOCTYPE html></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>html</span><span style='color:#274796; '> </span><span style='color:#074726; '>lang</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"en"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>head</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>meta</span><span style='color:#274796; '> </span><span style='color:#074726; '>charset</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"UTF-8"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>title</span><span style='color:#a65700; '>></span>HEY!<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>title</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>link</span><span style='color:#274796; '> </span><span style='color:#074726; '>rel</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"stylesheet"</span><span style='color:#274796; '> </span><span style='color:#074726; '>href</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"</span><span style='color:#274796; '> integrity</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"</span><span style='color:#274796; '> crossorigin</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"anonymous"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>style</span><span style='color:#a65700; '>></span>
+        <span style='color:#808030; '>#</span>container <span style='color:#800080; '>{</span>
+            <span style='color:#bb7977; font-weight:bold; '>position</span><span style='color:#808030; '>:</span> <span style='color:#074726; '>absolute</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>top</span><span style='color:#808030; '>:</span> <span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#800080; '>;</span>
+
+            <span style='color:#bb7977; font-weight:bold; '>left</span><span style='color:#808030; '>:</span> <span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#800080; '>;</span>
+            <span style='color:#008484; '>-moz-transform</span><span style='color:#808030; '>:</span> <span style='color:#400000; '>translateX</span><span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#808030; '>)</span> <span style='color:#400000; '>translateY</span><span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+            <span style='color:#008484; '>-webkit-transform</span><span style='color:#808030; '>:</span> <span style='color:#400000; '>translateX</span><span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#808030; '>)</span> <span style='color:#400000; '>translateY</span><span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>transform</span><span style='color:#808030; '>:</span> <span style='color:#400000; '>translateX</span><span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#808030; '>)</span> <span style='color:#400000; '>translateY</span><span style='color:#808030; '>(</span><span style='color:#808030; '>-</span><span style='color:#008c00; '>50</span><span style='color:#006600; '>%</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+        <span style='color:#800080; '>}</span>
+        <span style='color:#808030; '>*</span><span style='color:#800080; '>{</span>
+            <span style='color:#bb7977; font-weight:bold; '>font-family</span><span style='color:#808030; '>:</span> Arial<span style='color:#800080; '>;</span>
+        <span style='color:#800080; '>}</span>
+        <span style='color:#800000; font-weight:bold; '>span</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#800080; '>{</span>
+            <span style='color:#bb7977; font-weight:bold; '>background-image</span><span style='color:#808030; '>:</span> <span style='color:#400000; '>url</span><span style='color:#808030; '>(</span><span style='color:#0000e6; '>"</span><span style='color:#666616; '>https</span><span style='color:#800080; '>:</span><span style='color:#800000; font-weight:bold; '>//</span><span style='color:#5555dd; '>via.placeholder.com</span><span style='color:#40015a; '>/500x500</span><span style='color:#800000; font-weight:bold; '>?</span><span style='color:#074726; '>text=%20</span><span style='color:#0000e6; '>"</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>background-repeat</span><span style='color:#808030; '>:</span> <span style='color:#074726; '>no-repeat</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>background-position</span><span style='color:#808030; '>:</span> <span style='color:#074726; '>center</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>padding</span><span style='color:#808030; '>:</span><span style='color:#008c00; '>256</span><span style='color:#006600; '>px</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>font-size</span><span style='color:#808030; '>:</span> <span style='color:#008c00; '>10</span><span style='color:#006600; '>rem</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>white-space</span><span style='color:#808030; '>:</span> <span style='color:#074726; '>nowrap</span><span style='color:#800080; '>;</span>
+            <span style='color:#bb7977; font-weight:bold; '>color</span><span style='color:#808030; '>:</span><span style='color:#008c00; '>#</span><span style='color:#008000; '>000000</span><span style='color:#800080; '>;</span>
+        <span style='color:#800080; '>}</span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>style</span><span style='color:#a65700; '>></span>
+    <span style='color:#696969; '>&lt;!--Your custom css will be in here!--></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>link</span><span style='color:#274796; '> </span><span style='color:#074726; '>rel</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"stylesheet"</span><span style='color:#274796; '> </span><span style='color:#074726; '>href</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"custom.css"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>head</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>body</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>div</span><span style='color:#274796; '> </span><span style='color:#074726; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"container"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#a65700; '>></span>PLACEHOLDER<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>div</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>body</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>html</span><span style='color:#a65700; '>></span>
+</pre>
+<!--Created using ToHtml.com on 2020-01-18 19:01:20 UTC -->
+            <label for="style">Custom CSS</label>
+            <textarea id="style" class="form-control" rows="10"></textarea>
+            <p class="text-muted">This field is optional.</p>
+            <button type="button" onclick="setup()" class="btn btn-primary w-100">Save and Continue</button>
+            <p class="text-muted">You can later access the settings by pressing the 's' key on your keyboard.</p>
+        </form>
+    </div>
+
+</main>
+<script type="text/javascript" src="/eel.js"></script>
+<script>
+    let greeting = document.getElementById("greeting");
+    let welcomemsg = document.getElementById("welcomemsg");
+    let logo = document.getElementById("logo");
+    let css = document.getElementById("style")
+    function setup() {
+        if(greeting.value && welcomemsg.value && logo.value) {
+            eel.setup(welcomemsg.value, greeting.value, logo.value, css.value);
+            window.location = "ui.html";
+        }else{
+            alert("The required fields cant be empty!");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HEY! Setup</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 1rem;
+        }
+
+        .starter-template {
+            padding: 3rem 1.5rem;
+            text-align: left;
+        }
+        code{
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<main role="main" class="container">
+    <div class="starter-template">
+        <h1>Settings</h1>
+        <form>
+            <label for="welcomemsg">Welcome Message</label>
+            <input type="text" id="welcomemsg" class="form-control" required>
+            <p class="text-muted">This message will be shown when in idle state.</p>
+            <label for="greeting">Greeting</label>
+            <input type="text" id="greeting" required class="form-control">
+            <p class="text-muted">This message will be shown when a person is recognized. Use {user} at the position the
+                name of the recognized person should be.</p>
+            <label for="logo">Company Logo</label>
+            <input type="text" class="form-control" id="logo" placeholder="Enter Base64 Encoded Logo" required>
+            <p class="text-muted"><a href="base64.html" target="_blank">Encode Image</a> This logo will be shown behind your text.</p>
+            <label for="style">Custom CSS</label>
+            <textarea id="style" class="form-control" rows="10"></textarea>
+            <p class="text-muted">This field is optional.</p>
+            <button type="button" onclick="setup()" class="btn btn-primary w-100">Save and Continue</button>
+            <p class="text-muted">You can later access the settings by pressing the 's' key on your keyboard.</p>
+        </form>
+    </div>
+
+</main>
+<script type="text/javascript" src="/eel.js"></script>
+<script>
+    let greeting = document.getElementById("greeting");
+    let welcomemsg = document.getElementById("welcomemsg");
+    let logo = document.getElementById("logo");
+    let css = document.getElementById("style")
+    function setup() {
+        if(greeting.value && welcomemsg.value && logo.value) {
+            eel.setup(welcomemsg.value, greeting.value, logo.value, css.value);
+            window.location = "ui.html";
+        }else{
+            alert("The required fields cant be empty!");
+        }
+    }
+    let jsons;
+    let container = document.getElementById("container");
+    eel.getConfig()((x) => jsons = x);
+    const waiter = setInterval(function f() {
+        let config = JSON.parse(jsons);
+        logo.value = config["logo"];
+        welcomemsg.value = config["welcomemessage"];
+        greeting.value = config["greeting"];
+        css.value = config["css"];
+        if (jsons) {
+            clearInterval(waiter);
+        }
+    }, 100);
+</script>
+</body>
+</html>
